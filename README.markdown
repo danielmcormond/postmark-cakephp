@@ -45,6 +45,10 @@ You can also use the following optional attributes:
 	$this->Postmark->bcc = '<recipient@domain.com>';
 	$this->Postmark->replyTo = '<sender@domain.com>';
 
+To send to multiple recipients, simply use an array of addresses in the 'to', 'cc', or 'bcc' fields. For example:
+
+	$this->Postmark->cc = array('<recipient@domain.com>', '<another@domain.com>');
+
 The syntax of all parameters is the same as the default CakePHP email component:
 
 	http://book.cakephp.org/view/1283/Email

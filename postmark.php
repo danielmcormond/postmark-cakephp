@@ -96,12 +96,20 @@ class PostmarkComponent extends EmailComponent {
 
 		// Cc
 		if (!empty($this->cc)) {
-			$message['Cc'] = implode(', ', array_map(array($this, '_formatAddress'), $this->cc));
+			if (is_array($this->cc)) {
+				$message['Cc'] = implode(', ', array_map(array($this, '_formatAddress'), $this->cc));
+			} else {
+				$message['Cc'] = $this->_formatAddress($this->cc);
+			}
 		}
 
 		// Bcc
 		if (!empty($this->bcc)) {
-			$message['Bcc'] = implode(', ', array_map(array($this, '_formatAddress'), $this->bcc));
+			if (is_array($this->bcc)) {
+				$message['Bcc'] = implode(', ', array_map(array($this, '_formatAddress'), $this->bcc));
+			} else {
+				$message['Bcc'] = $this->_formatAddress($this->bcc);
+			}
 		}
 
 		// Subject
@@ -113,7 +121,7 @@ class PostmarkComponent extends EmailComponent {
 		}
 
 		// HtmlBody
-		if ($this->sendAs === 'html') {
+		if ($this->sendAs === 'html' || $this->sendAs === 'both') {
 			$message['HtmlBody'] = $this->htmlMessage;
 		}
 
