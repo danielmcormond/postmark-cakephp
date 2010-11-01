@@ -6,6 +6,12 @@ Licensed under The MIT License
 Redistributions of files must retain the above copyright notice.
 
 
+Version
+-------
+
+Written for CakePHP 1.3+
+
+
 Configuration
 -------------
 
