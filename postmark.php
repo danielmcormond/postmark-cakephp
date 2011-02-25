@@ -113,7 +113,7 @@ class PostmarkComponent extends EmailComponent {
 		}
 
 		// Subject
-		$message['Subject'] = $this->_encode($this->subject);
+		$message['Subject'] = $this->subject;
 
 		// Tag
 		if (!empty($this->tag)) {
